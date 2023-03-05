@@ -11,6 +11,7 @@ def index():
         with open(city + '.csv', 'r') as f:
             reader = csv.DictReader(f)
             bills = list(reader)
+        bills.reverse()
         return render_template('index.html', bills=bills, city = " ".join(city.split("-")).title())
     else:
         return render_template('index.html', bills=[])
